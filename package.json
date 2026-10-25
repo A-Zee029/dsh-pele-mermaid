@@ -1,0 +1,42 @@
+{
+  "name": "dsh-pele-mermaid",
+  "version": "0.2.0",
+  "description": "Render Mermaid diagrams inside Markdown document previews with Pele",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.3 <0.3.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-sidebar-documentpreview"
+      ],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "pele": "1.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
